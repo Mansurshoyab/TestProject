@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Student;
@@ -12,13 +13,12 @@ class Address extends Model
 
 
     protected $fillable = [
-        'name',
-        'email',
-        'thana_id',
-        'district_id'
+        'thana',
+        'district'
     ];
 
-    public function student(){
+    public function student()
+    {
         return $this->hasMany(Student::class);
     }
 }

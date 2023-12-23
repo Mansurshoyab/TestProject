@@ -12,12 +12,20 @@ class StudentController extends Controller
     public function index(){
 
         $addresses = Address::all();
-        return view('student.student')->with(['addresses'=> $addresses]);
+        $students = Student::all();
+        // dd($students);
+        return view('student.student')->with(['addresses' => $addresses, 'students' => $students]);
     }
 
     public function store(Request $request){
-        dd($request);
+        // dd($request);
         Student::create($request->all());
-        // return back();
+        return back();
+    }
+
+    public function show(){
+        $students = Student::all();
+        // dd($students);
+        return view('student.student')->with(['students' => $students]);
     }
 }

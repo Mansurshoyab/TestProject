@@ -15,10 +15,12 @@ class Student extends Model
         'name',
         'email',
         'thana_id',
-        'district_id'
+        'district_id',
+        'status',
     ];
 
-    public function address(){
-        return $this->belongsTo(Address::class);
+    public function address()
+    {
+        return $this->belongsTo(Address::class, 'thana_id');
     }
 }

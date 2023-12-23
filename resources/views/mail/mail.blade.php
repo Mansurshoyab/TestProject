@@ -22,18 +22,16 @@
 
 <body>
 
-
-
     <div class="container mt-5">
         <a class="btn btn-success" href="{{ url('/student') }}">Go Student</a>
         <form action="{{ route('address.store') }}" method="POST" class="mt-5">
             @csrf
             <div class="form-group">
-                <label for="">Thana</label>
-                <input type="text" name="thana" class="form-control">
-                <label for="">District</label>
-                <input type="text" name="district" class="form-control">
-                <button type="submit">submit</button>
+                <label for=""> Email </label>
+                <input type="email" name="thana" class="form-control">
+                <label for=""> Discription </label>
+                <textarea  name="district" class="form-control" id="" cols="30" rows="3"></textarea><br>
+                <button type="submit"  class="form-control btn btn-success">submit</button>
             </div>
         </form>
 
@@ -42,8 +40,8 @@
                 <thead>
                     <tr>
                         <th>SL</th>
-                        <th>Thana</th>
-                        <th>District</th>
+                        <th>Email</th>
+                        <th>Discription</th>
                     </tr>
                 </thead>
                 <tbody>

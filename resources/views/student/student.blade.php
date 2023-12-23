@@ -22,9 +22,12 @@
 <body>
 
     <div class="container">
+        <a class="btn btn-success mt-5" href="{{ route('address') }}">Address</a>
 
+        <a class="btn btn-success mt-5" href="{{ url('/admin') }}">Admin</a>
         <form action="{{ route('student.store') }}" method="POST" class="mt-5">
             @csrf
+            {{-- @dd($students); --}}
             <div class="form-group">
                 <label for="">Name</label>
                 <input type="text" name="name" class="form-control">
@@ -33,7 +36,7 @@
                 <label for="">Thana</label>
                 <select name="thana_id" id="" class="form-control">
                     @foreach ($addresses as $item)
-                        <option value="{{ $item->id }}">{{ $item->thana }}</option>
+                            <option value="{{ $item->id }}">{{ $item->thana}}</option>
                     @endforeach
                 </select>
                 <label for="">District</label>
@@ -61,11 +64,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>shoyab</td>
-                            <td>shoyab@gmail.com</td>
-                        </tr>
+                        @foreach ($students as $item)
+                         <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->address->thana }}</td>
+                                <td>{{ $item->address->district }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

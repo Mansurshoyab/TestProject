@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('thana_id')->references('id')->on('addresses')->onDelete('cascade');
             $table->unsignedBigInteger('district_id');
             $table->foreign('district_id')->references('id')->on('addresses')->onDelete('cascade');
+            $table->enum('status', ['Applied','Active']);
             $table->timestamps();
         });
     }
